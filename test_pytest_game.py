@@ -20,7 +20,6 @@ class Test_game_durak:
         d.finish_turn()
 
         assert d.attacker_index == 0
-        assert d.current_player.n_cards == 6
         assert d.current_player.n_cards != d.opponent_player.n_cards == 7
 
         assert d.opponent_player.n_cards != 6
