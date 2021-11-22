@@ -42,7 +42,7 @@ class Player:
     def take_card(self, card):
         self.cards.remove(card)
 
-    # @property -????
+    @property
     def n_cards(self):
         return len(self.cards)
 
@@ -239,7 +239,6 @@ class ConsoleRenderer(GameRenderer):
 
 # запуск ИГРЫ
 def local_game():
-    # rng = random.Random(42)  # игра с фиксированным рандомом (для отладки)
     rng = random.Random()  # случайная игра
 
     g = Durak(rng=rng)
@@ -252,7 +251,7 @@ def local_game():
 
         renderer.sep()
         choice = input('Ваш ход: ')
-        # разбиваем на части: команда - пробел - номер карты
+        # разбиваем на части: команда + номер карты
         parts = choice.lower()
         if not parts:
             break
@@ -290,7 +289,7 @@ def local_game():
         except IndexError:
             print('Неправильный выбор карты')
         except ValueError:
-            print('Введите число через пробел после команды')
+            print('Введите число без пробела после команды')
 
         if g.winner:
             print(f'Игра окончена, победитель игрок: #{g.winner + 1}')
